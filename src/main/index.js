@@ -22,9 +22,11 @@ function createWindow() {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
+    title: "Nedis",
     height: 563,
     useContentSize: true,
-    width: 1000
+    width: 1000,
+    center: true
   });
 
   mainWindow.loadURL(winURL);
