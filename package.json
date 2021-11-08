@@ -1,8 +1,8 @@
 {
-  "name": "redis-ui",
-  "version": "0.0.1",
-  "author": "kelezyb <hbdev@hongbung.com>",
-  "description": "an redis client",
+  "name": "Nedis",
+  "version": "0.1.0",
+  "author": "kelezyb <eicesoft@qq.com>",
+  "description": "a redis gui client",
   "license": null,
   "main": "./dist/electron/main.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "postinstall": ""
   },
   "build": {
-    "productName": "redis-ui",
+    "productName": "Nedis",
     "appId": "net.eicesoft.redis",
     "directories": {
       "output": "build"
