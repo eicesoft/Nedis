@@ -11,24 +11,26 @@ export default {
 </script>
 
 <style>
-/* CSS */
-.app {
+body {
+  margin: auto;
+  padding: auto;
 }
+/* CSS */
 ::-webkit-scrollbar {
   width: 6px;
 }
 /* 滚动槽 */
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(139, 139, 139, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(189, 189, 189, 0.3);
   border-radius: 10px;
 }
 /* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: #bbb;
-  -webkit-box-shadow: inset 0 0 6px rgba(92, 88, 88, 0.5);
+  background: rgb(216, 216, 216);
+  -webkit-box-shadow: inset 0 0 3px rgba(167, 161, 161, 0.5);
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-  background: rgba(236, 236, 236, 0.4);
+  background: rgba(197, 197, 197, 0.4);
 }
 </style>
