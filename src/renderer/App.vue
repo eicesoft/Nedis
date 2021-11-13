@@ -11,10 +11,16 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap");
+
 body {
   margin: auto;
   padding: auto;
+
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 13px;
 }
+
 /* CSS */
 ::-webkit-scrollbar {
   width: 6px;
@@ -32,5 +38,20 @@ body {
 }
 ::-webkit-scrollbar-thumb:window-inactive {
   background: rgba(197, 197, 197, 0.4);
+  width: 2px;
+}
+.el-dialog__header {
+  padding: 5px 10px 5px !important;
+  font-size: 16px !important;
+  font-weight: 800;
+}
+.el-dialog__body {
+  padding: 10px 20px !important;
+}
+.el-message {
+  padding: 8px !important;
+}
+.el-message__content {
+  font-size: 12px !important;
 }
 </style>

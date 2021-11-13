@@ -23,9 +23,9 @@ function createWindow() {
    */
   mainWindow = new BrowserWindow({
     title: "Nedis",
-    height: 563,
+    height: 680,
     useContentSize: true,
-    width: 1000,
+    width: 1200,
     center: true
   });
 

@@ -7,11 +7,23 @@
       @node-click="nodeClick"
       :props="props"
     >
-      <div class="custom-tree-node" slot-scope="{ node, data }">
-        <i class="el-icon-collection-tag"></i>
-        <span :width="width - 60 + 'px'" class="tree-label">
-          {{ node.label }}
-        </span>
+      <div class="tree-node" slot-scope="{ node, data }">
+        <div>
+          <i v-if="data.type == 0" class="el-icon-s-home"></i>
+          <i v-if="data.type == 1" class="el-icon-collection"></i>
+          <i v-if="data.type == 2" class="el-icon-collection-tag"></i>
+          <span :width="width - 60 + 'px'" class="tree-label">
+            {{ node.label }}
+          </span>
+        </div>
+        <div>
+          <i
+            @click.stop="refresh(data)"
+            title="刷新"
+            v-if="data.type == 1"
+            class="el-icon-refresh-right toolbar"
+          ></i>
+        </div>
       </div>
     </el-tree>
   </div>
@@ -42,9 +54,26 @@ export default {
   methods: {
     nodeClick(data, node, component) {
       this.$emit("click", data);
+    },
+    refresh(data) {
+      this.$emit("refresh", data);
     }
   }
 };
 </script>
 
-<style></style>
+<style scoped>
+.tree-node {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  cursor: grab !important;
+}
+.toolbar {
+  cursor: pointer !important;
+  font-size: 14px;
+}
+.toolbar:hover {
+  color: rgb(71, 0, 0);
+}
+</style>

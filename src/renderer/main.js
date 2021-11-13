@@ -6,14 +6,14 @@ import router from "./router";
 import store from "./store";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
-import Contextmenu from "vue-contextmenujs";
+import Directives from "./directives";
 
 if (!process.env.IS_WEB) Vue.use(require("vue-electron"));
 Vue.http = Vue.prototype.$http = axios;
 Vue.config.productionTip = false;
 
+Vue.use(Directives);
 Vue.use(ElementUI);
-Vue.use(Contextmenu);
 
 /* eslint-disable no-new */
 new Vue({

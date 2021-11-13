@@ -3,7 +3,7 @@
     <div class="info">
       <div>
         Key:
-        <el-tag size="mini">{{ info.name }}</el-tag>
+        <el-tag v-copy="info.name" size="mini">{{ info.name }}</el-tag>
       </div>
       <div>
         类型:
@@ -34,18 +34,25 @@
           ></JsonViewer>
         </template>
         <template v-else>
-          {{ info.value }}
+          <template v-if="info.size <= 102400">
+            {{ info.value }}
+          </template>
+          <template v-else>
+            {{ info.value.substr(0, 102400) }}
+            <el-tag size="mini">...</el-tag>
+          </template>
         </template>
       </template>
 
       <template v-else-if="info.type == 'hash'">
-        <div class="hash-item" v-for="(item, key) in info.value">
-          <div class="hash-item-label">{{ key }}:</div>
-          <div class="hash-item-value">{{ item }}</div>
-        </div>
+        <HashView :info="info" />
       </template>
 
       <template v-else-if="info.type == 'list'">
+        <HashView :info="info" />
+      </template>
+
+      <template v-else-if="info.type == 'set'">
         <div class="hash-item" v-for="(item, index) in info.value">
           <div class="hash-item-label">{{ index }}</div>
           <div class="hash-item-value">{{ item }}</div>
@@ -57,10 +64,11 @@
 
 <script>
 import JsonViewer from "vue-json-viewer";
+import HashView from "./HashView";
 
 export default {
   name: "key-view",
-  components: { JsonViewer },
+  components: { JsonViewer, HashView },
   props: {
     height: {
       type: Number
@@ -84,7 +92,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .icon {
   font-size: 20px;
   cursor: pointer;
@@ -95,9 +103,7 @@ export default {
 .info {
   display: flex;
 }
-.hash-item {
-  display: flex;
-}
+
 .info div {
   margin: 0 20px;
 }
